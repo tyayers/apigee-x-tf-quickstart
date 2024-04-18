@@ -92,13 +92,7 @@ module "apigee-x-core" {
       hostnames = concat(env_group.hostnames, ["${name}.${module.nip-development-hostname.hostname}"])
     }
   }
-  apigee_instances = {
-    instance-1 = {
-      region       = "${var.region}"
-      ip_range     = "10.0.0.0/22"
-      environments = var.apigee_environment_name_list
-    }
-  }
+  apigee_instances = var.apigee_instances
   network          = module.vpc.network.id
 }
 

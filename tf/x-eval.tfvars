@@ -14,7 +14,21 @@
  * limitations under the License.
  */
 
+project_id="YOUR_PROJECT_ID"
+billing_id="YOUR_BILLING_ID"
+apigee_admin="GCP_USER_EMAIL"
+
+network="default"
 apigee_environment_name_list = ["dev", "prod"]
+region = "europe-west1"
+
+apigee_instances = {
+  instance-1 = {
+    region       = "europe-west1"
+    ip_range     = "10.0.0.0/22"
+    environments = ["dev", "prod"]
+  }
+}
 
 apigee_environments = {
   dev = {
