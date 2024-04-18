@@ -93,7 +93,7 @@ variable "project_parent" {
 variable "project_create" {
   description = "Create project. When set to false, uses a data source to reference existing project."
   type        = bool
-  default     = false
+  default     = true
 }
 
 variable "psc_ingress_network" {

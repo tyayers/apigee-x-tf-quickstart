@@ -15,12 +15,13 @@
  */
 
 project_id="YOUR_PROJECT_ID"
-billing_id="YOUR_BILLING_ID"
+billing_account="YOUR_BILLING_ID"
 apigee_admin="GCP_USER_EMAIL"
+region = "europe-west1"
 
 network="default"
 apigee_environment_name_list = ["dev", "prod"]
-region = "europe-west1"
+
 
 apigee_instances = {
   instance-1 = {
@@ -57,8 +58,6 @@ apigee_envgroups = {
 }
 
 apigee_billing_type = "EVALUATION"
-
-network = "apigee-network"
 
 psc_ingress_network = "psc-ingress"
 
