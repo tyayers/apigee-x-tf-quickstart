@@ -16,7 +16,7 @@ Here are the resources created by this quickstart.
 ## Deployment
 You can deploy this with a tutorial in **Google Cloud Shell** by clicking this button.
 
-[![Open in Cloud Shell](https://gstatic.com/cloudssh/images/open-btn.png)](https://ssh.cloud.google.com/cloudshell/open?cloudshell_git_repo=https://github.com/tyayers/apigee-x-quickstart&cloudshell_git_branch=master&cloudshell_workspace=.&cloudshell_tutorial=docs/tutorial.md)
+[![Open in Cloud Shell](https://gstatic.com/cloudssh/images/open-btn.png)](https://ssh.cloud.google.com/cloudshell/open?cloudshell_git_repo=https://github.com/tyayers/apigee-x-tf-quickstart&cloudshell_git_branch=master&cloudshell_workspace=.&cloudshell_tutorial=docs/tutorial.md)
 
 ### Manual deployment (also easy!)
 You can deploy this manually running these shell commands in your environment of choice (**gcloud** and **terraform** have to be installed).
