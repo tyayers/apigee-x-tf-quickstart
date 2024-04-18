@@ -15,7 +15,7 @@
  */
 
 project_id="YOUR_PROJECT_ID"
-billing_account="YOUR_BILLING_ID"
+billing_id="YOUR_BILLING_ID"
 apigee_admin="GCP_USER_EMAIL"
 region = "europe-west1"
 

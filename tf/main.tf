@@ -24,7 +24,7 @@ module "project" {
   source          = "github.com/terraform-google-modules/cloud-foundation-fabric//modules/project?ref=v15.0.0"
   name            = var.project_id
   parent          = var.project_parent
-  billing_account = var.billing_account
+  billing_account = var.billing_id
   project_create  = var.project_create
   services = [
     "apigee.googleapis.com",

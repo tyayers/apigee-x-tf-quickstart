@@ -68,7 +68,7 @@ variable "support_range" {
   type        = string
 }
 
-variable "billing_account" {
+variable "billing_id" {
   description = "Billing account id."
   type        = string
   default     = null
