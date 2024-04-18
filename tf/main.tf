@@ -85,14 +85,20 @@ module "apigee-x-core" {
   source              = "github.com/apigee/terraform-modules/modules/apigee-x-core"
   billing_type        = var.apigee_billing_type
   project_id          = module.project.project_id
-  ax_region           = var.ax_region
+  ax_region           = var.region
   apigee_environments = var.apigee_environments
   apigee_envgroups = {
     for name, env_group in var.apigee_envgroups : name => {
       hostnames = concat(env_group.hostnames, ["${name}.${module.nip-development-hostname.hostname}"])
     }
   }
-  apigee_instances = var.apigee_instances
+  apigee_instances = {
+    instance-1 = {
+      region       = "${var.region}"
+      ip_range     = "10.0.0.0/22"
+      environments = var.apigee_environment_name_list
+    }
+  }
   network          = module.vpc.network.id
 }
 

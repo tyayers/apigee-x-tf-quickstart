@@ -1,8 +1,10 @@
-# Apigee X TF Quickstart Demo
+# Apigee X Terraform Quickstart Demo
 
 ---
 
 This tutorial shows you how to configure and provision a completely automated GCP project, Apigee X org and instance, and a sample proxy.
+
+---
 
 Let's get started!
 

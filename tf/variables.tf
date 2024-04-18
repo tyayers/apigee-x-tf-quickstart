@@ -8,8 +8,8 @@ variable "apigee_admin" {
   type        = string
 }
 
-variable "ax_region" {
-  description = "GCP region for storing Apigee analytics data (see https://cloud.google.com/apigee/docs/api-platform/get-started/install-cli)."
+variable "region" {
+  description = "GCP region for the Apigee runtime & analytics data (see https://cloud.google.com/apigee/docs/api-platform/get-started/install-cli)."
   type        = string
 }
 
@@ -45,6 +45,12 @@ variable "apigee_environments" {
     type      = optional(string)
   }))
   default = null
+}
+
+variable "apigee_environment_name_list" {
+  description = "List of the Apigee environment names."
+  type = list(string)
+  default = ["dev", "prod"]
 }
 
 variable "network" {

@@ -14,15 +14,7 @@
  * limitations under the License.
  */
 
-ax_region = "europe-west1"
-
-apigee_instances = {
-  euw1-instance = {
-    region       = "europe-west1"
-    ip_range     = "10.0.0.0/22"
-    environments = ["dev", "prod"]
-  }
-}
+apigee_environment_name_list = ["dev", "prod"]
 
 apigee_environments = {
   dev = {
