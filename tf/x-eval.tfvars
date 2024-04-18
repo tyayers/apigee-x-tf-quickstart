@@ -20,8 +20,6 @@ apigee_admin="GCP_USER_EMAIL"
 region = "europe-west1"
 
 network="default"
-apigee_environment_name_list = ["dev", "prod"]
-
 
 apigee_instances = {
   instance-1 = {
@@ -30,6 +28,15 @@ apigee_instances = {
     environments = ["dev", "prod"]
   }
 }
+
+psc_ingress_subnets = [
+  {
+    name               = "apigee-psc-in1"
+    ip_cidr_range      = "10.100.0.0/24"
+    region             = "europe-west1"
+    secondary_ip_range = null
+  }
+]
 
 apigee_environments = {
   dev = {
@@ -60,15 +67,6 @@ apigee_envgroups = {
 apigee_billing_type = "EVALUATION"
 
 psc_ingress_network = "psc-ingress"
-
-psc_ingress_subnets = [
-  {
-    name               = "apigee-psc-euw1"
-    ip_cidr_range      = "10.100.0.0/24"
-    region             = "europe-west1"
-    secondary_ip_range = null
-  }
-]
 
 peering_range = "10.0.0.0/20"
 support_range = "10.1.0.0/28"
