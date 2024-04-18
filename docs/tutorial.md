@@ -53,7 +53,7 @@ This will set the correct org policies that Apigee needs for a typical demo or t
 Now we are ready to apply the configuration, which will create our GCP project, the Apigee X instance and environments, and a load balancer and certificate to reach our API endpoints.
 
 ```sh
-terraform apply --var-file=./x-demo.tfvars \
+terraform apply --var-file=./x-eval.tfvars \
 -var "project_id=$PROJECT_ID" \
 -var "project_create=true" \
 -var "billing_account=$BILLING_ID" \
