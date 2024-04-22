@@ -18,7 +18,7 @@ cp x-eval.tfvars x-eval.dev.tfvars
 ```
 Click to copy into a new variables file.
 
-After copying the file, click <walkthrough-editor-open-file filePath="x-eval.dev.tfvars">here</walkthrough-editor-open-file> to open the file in the editor. Set the the first three variables to your own values.
+After copying the file, click <walkthrough-editor-open-file filePath="./tf/x-eval.dev.tfvars">here</walkthrough-editor-open-file> to open the file in the editor. Set the the first three variables to your own values.
 
 ---
 

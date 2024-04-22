@@ -1,0 +1,36 @@
+openapi: 3.0.0
+info:
+  title: User message API
+  description: This API provides a simple way to retrieve a message in plain text.
+  version: 1.0.0
+  contact: {}
+servers:
+  - url: https://mocktarget.apigee.net
+paths:
+  /user:
+    get:
+      description: Returns a message in plain text.
+      responses:
+        '200':
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: OK
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Error
+      tags:
+        - messages
+components:
+  schemas:
+    Error:
+      description: Error object
+      properties:
+        message:
+          description: Error message
+          type: string
+      type: object
