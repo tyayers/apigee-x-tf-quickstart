@@ -16,7 +16,7 @@ First, copy the provided sample `x-eval.tfvars` file, and set the variables ther
 cd tf
 cp x-eval.tfvars x-eval.dev.tfvars
 ```
-Click to copy into a new variables file.
+Click the arrow above to copy into a new variables file.
 
 After copying the file, click <walkthrough-editor-open-file filePath="./tf/x-eval.dev.tfvars">here</walkthrough-editor-open-file> to open the file in the editor. Set the the first three variables to your own values.
 
@@ -24,7 +24,7 @@ After copying the file, click <walkthrough-editor-open-file filePath="./tf/x-eva
 
 ## Init Terraform
 
-Click <walkthrough-editor-open-file filePath="./tf/main.tf">here</walkthrough-editor-open-file> to view the base terraform configuration, including the GCP project configuration, org policies, and networking config.
+Click <walkthrough-editor-open-file filePath="./tf/main.tf">here</walkthrough-editor-open-file> to view the base terraform configuration, including the GCP project configuration, Apigee instance, org policies, and networking config.
 
 Now let's init our configuration:
 
@@ -32,8 +32,6 @@ Now let's init our configuration:
 terraform init
 ```
 Click the arrow above to copy this into your shell and press enter to run the command.
-
-This will set the correct org policies that Apigee needs for a typical demo or test environment.
 
 <walkthrough-footnote>This is just an example configuration, you can customize the policies and provisioning as needed for your needs.</walkthrough-footnote>
 
