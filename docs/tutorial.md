@@ -26,9 +26,7 @@ After copying the file, click <walkthrough-editor-open-file filePath="./tf/x-eva
 
 Now let's init our Terraform deployment.
 
-Click <walkthrough-editor-open-file filePath="./terraform/main.tf">here</walkthrough-editor-open-file> to open the base configuration, including the GCP project configuration, org policies, and networking config.
-
-Click <walkthrough-editor-open-file filePath="./terraform/x-demo.tfvars">here</walkthrough-editor-open-file> to open the Apigee X configuration settings for the deployment, including creating two environments, dev and test.
+Click <walkthrough-editor-open-file filePath="./tf/main.tf">here</walkthrough-editor-open-file> to open the base configuration, including the GCP project configuration, org policies, and networking config.
 
 Now let's init our configuration:
 
@@ -63,42 +61,25 @@ curl -L https://raw.githubusercontent.com/apigee/apigeecli/master/downloadLatest
 export PATH=$PATH:$HOME/.apigeecli/bin
 ```
 
-Now we can create a proxy based on the famous `petstore` OpenAPI spec.
+Now we can create a proxy based on a local OpenAPI specification. Click <walkthrough-editor-open-file filePath="./specs/user-api.yaml">here</walkthrough-editor-open-file> to open the the file in the editor.
+
+To deploy the API proxy, we're going to need your new Google Cloud project Id, so set that as an environment variable in our shell now.
 
 ```sh
+# Set the variable to the same project Id you used in x-eval.dev.tfvars
+PROJECT_ID=YOUR_PROJECT_ID
+```
+
+Now let's import the spec file as an API in our Apigee X environment.
+
+```sh
+# First get a token to use for the command
 TOKEN=$(gcloud auth print-access-token)
-apigeecli apis create openapi -n petstore -u https://raw.githubusercontent.com/apigee/apigeecli/master/test/petstore.yaml -t $TOKEN -o $PROJECT_ID
+# Now use apigeecli to create an API proxy from the spec and deploy it to Apigee
+apigeecli apis create openapi -t $TOKEN -o $PROJECT_ID -e dev --ovr -n UserAPI-v1 -p /hello --oas-base-folderpath ./specs --oas-name user-api.yaml
 ```
 
-This creates and imports a proxy into Apigee based on the OpenAPI spec.
-
-Now let's deploy the proxy into one of our Apigee environments (`dev` or `prod`).
-
-```sh
-apigeecli apis deploy -n petstore -o $PROJECT_ID -t $TOKEN -r -e dev -v 1
-```
-
-Now check out the deployed proxy in the [Apigee console](https://apigee.google.com). To test the API, you will need to create an app and credentials (see the [Apigee docs](https://cloud.google.com/apigee/docs/api-platform/tutorials/secure-calls-your-api-through-api-key-validation) for more information.)
-
----
-
-## Deploy an Apigee proxy using a template
-
-Now let's deploy a simple proxy based on a JSON template. For this we can use a tool called [apigee-templater]() that will automate the creating and deployment of the proxy.
-
-[Open](https://raw.githubusercontent.com/apigee/apigee-templater/main/examples/users.json) the template file in a browser to see the definition (proxying user data and adding a rate limit).
-
-```sh
-npm i -g apigee-templater-cli
-```
-
-And now we can deploy the proxy based on a simple template.
-
-```sh
-apigee-template -f https://raw.githubusercontent.com/apigee/apigee-templater/main/examples/users.json -d -e test
-```
-
-Now you should see a URL displayed after the proxy deployment that you can call to test the proxy. Try calling using `curl` or just open the link in your browser (it takes a few seconds for the deployment to complete). Try calling it too often to invoke the spike arrest to throttle traffic.
+Now check out the deployed proxy in the [Apigee console](https://console.cloud.google.com/apigee/overview). To test the API, go to the **API Proxies** menu on the left-hand side, click on the entry for **UserAPI-v1**, and after the deployment is complete click on **DEBUG** to start a debug session and send some commands to the **URL** displayed in the session information.
 
 ---
 
