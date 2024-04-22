@@ -88,4 +88,11 @@ Now check out the deployed proxy in the [Apigee console](https://console.cloud.g
 
 Congratulations! You've successfully provisioned Apigee X with Terraform, and deployed a first proxy using apigeeli. You are now an **honorary Apigeek!**
 
+When you're finished with the project, you can easily destroy it by running the `destroy` command.
+
+```sh
+# Destroy project when finished
+terraform destroy --var-file=./x-eval.dev.tfvars
+```
+
 <walkthrough-inline-feedback></walkthrough-inline-feedback>
