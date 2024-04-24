@@ -134,13 +134,13 @@ module "nb-psc-l7xlb" {
 #   create_duration = "120s"
 # }
 
-resource "google_project_iam_member" "member-role" {
-  for_each = toset([
-    "roles/editor",
-    "roles/apigee.admin"
-  ])
-  role = each.key
-  member = "user:${var.apigee_admin}"
-  project = module.project.project_id
-  depends_on = [ module.apigee-x-core ]
-}
+# resource "google_project_iam_member" "member-role" {
+#   for_each = toset([
+#     "roles/editor",
+#     "roles/apigee.admin"
+#   ])
+#   role = each.key
+#   member = "user:${var.apigee_admin}"
+#   project = module.project.project_id
+#   depends_on = [ module.apigee-x-core ]
+# }

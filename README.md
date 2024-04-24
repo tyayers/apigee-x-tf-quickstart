@@ -26,7 +26,7 @@ You can deploy this manually running these shell commands in your environment of
 git clone https://github.com/tyayers/apigee-x-tf-quickstart.git; cd apigee-x-tf-quickstart
 
 # Change to the tf directory
-cd tf
+cd tf_apigee_simple
 
 # Copy the the tfvar variables file and change the first three variables to your values
 cp x-eval.tfvars x-eval.dev.tfvars

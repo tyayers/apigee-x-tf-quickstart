@@ -3,11 +3,6 @@ variable "project_id" {
   type        = string
 }
 
-variable "apigee_admin" {
-  description = "The email address of the user who should be assigned Apigee Org Admin rights in the new project."
-  type        = string
-}
-
 variable "region" {
   description = "GCP region for the Apigee runtime & analytics data (see https://cloud.google.com/apigee/docs/api-platform/get-started/install-cli)."
   type        = string

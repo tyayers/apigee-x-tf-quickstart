@@ -14,56 +14,58 @@
  * limitations under the License.
  */
 
-ax_region = "europe-west1"
+project_id="YOUR_PROJECT_ID"
+billing_id="YOUR_BILLING_ID"
+region = "europe-west4"
+
+network="default"
 
 apigee_instances = {
-  euw1-instance = {
-    region       = "europe-west1"
+  instance-1 = {
+    region       = "europe-west4"
     ip_range     = "10.0.0.0/22"
     environments = ["dev", "prod"]
   }
 }
 
+psc_ingress_subnets = [
+  {
+    name               = "apigee-psc-in1"
+    ip_cidr_range      = "10.100.0.0/24"
+    region             = "europe-west4"
+    secondary_ip_range = null
+  }
+]
+
 apigee_environments = {
   dev = {
     display_name = "dev"
-    description  = "Environment created by apigee/terraform-modules"
+    description  = "Apigee environment for development."
     node_config  = null
     iam          = null
     envgroups    = ["dev"]
-    type         = "INTERMEDIATE"
   }
   prod = {
     display_name = "prod"
-    description  = "Environment created by apigee/terraform-modules"
+    description  = "Apigee environment for production."
     node_config  = null
     iam          = null
     envgroups    = ["prod"]
-    type         = "INTERMEDIATE"
-  }
+  }  
 }
 
 apigee_envgroups = {
   dev = {
-    hostnames = ["dev.api.example.com"]
+    hostnames = []
   }
   prod = {
-    hostnames = ["prod.api.example.com"]
+    hostnames = []
   }
 }
 
-network = "apigee-network"
+apigee_billing_type = "EVALUATION"
 
 psc_ingress_network = "psc-ingress"
-
-psc_ingress_subnets = [
-  {
-    name               = "apigee-psc-euw1"
-    ip_cidr_range      = "10.100.0.0/24"
-    region             = "europe-west1"
-    secondary_ip_range = null
-  }
-]
 
 peering_range = "10.0.0.0/20"
 support_range = "10.1.0.0/28"

@@ -13,7 +13,7 @@ Let's get started!
 First, copy the provided sample `x-eval.tfvars` file, and set the variables there for your deployment.
 
 ```sh
-cd tf
+cd tf_apigee_simple
 cp x-eval.tfvars x-eval.dev.tfvars
 ```
 Click the arrow above to copy into a new variables file.
