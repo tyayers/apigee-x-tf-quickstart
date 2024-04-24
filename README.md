@@ -8,10 +8,10 @@ Here are the resources created by this quickstart.
   - Some org policies are configured to fit publicly accessable APIs in Apigee X:
     - The policies **compute.requireOsLogin** and **compute.requireShieldedVm** are both set to **false**.
     - The policies **iam.allowedPolicyMemberDomains** and **compute.vmExternalIpAccess** are set to **allow all=true**.
-    - A configured user is added to the project with the roles **editor** and **apigee.admin**.
 - A free Apigee X evaluation instance is provisioned in a given Google Cloud region (default europe-west1 Belgium) with two environments, **dev** and **prod**.
 - The **dev** and **prod** environment groups, a public load balancer, and certificates with **nip.io** are also provisioned.
 - A **PSC (Private Service Connect)** attachment is also used to connect the public load balancer to the Apigee X instance.
+- If the directory `tf_apigee_integration` is used, then Application Integration is also provisioned in the chosen region.
 
 ## Deployment
 You can deploy this with a tutorial in **Google Cloud Shell** by clicking this button.
