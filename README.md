@@ -14,29 +14,26 @@ Here are the resources created by this quickstart.
 - If the directory `tf_apigee_integration` is used, then Application Integration is also provisioned in the chosen region.
 
 ## Deployment
-You can deploy this with a tutorial in **Google Cloud Shell** by clicking this button.
-
-[![Open in Cloud Shell](https://gstatic.com/cloudssh/images/open-btn.png)](https://ssh.cloud.google.com/cloudshell/open?cloudshell_git_repo=https://github.com/tyayers/apigee-x-tf-quickstart&cloudshell_git_branch=main&cloudshell_workspace=.&cloudshell_tutorial=docs/tutorial.md)
-
-### Manual deployment (also easy!)
 You can deploy this manually running these shell commands in your environment of choice (**gcloud** and **terraform** have to be installed).
 
 ```sh
 # Clone the repository and switch to the directory
 git clone https://github.com/tyayers/apigee-x-tf-quickstart.git; cd apigee-x-tf-quickstart
 
-# Change to the tf directory
-cd tf_apigee_simple
+# Copy the environment variables file and edit with your values
+cp 1_env.sh 1_env.local.sh
+nano 1_env.local.sh
+source 1_env.local.sh
 
-# Copy the the tfvar variables file and change the first three variables to your values
-cp x-eval.tfvars x-eval.dev.tfvars
+# Change to the tf_apigee_simple or tf_apigee_integration directory
+cd tf_apigee_simple
 
 # Run terraform init on the configuration
 terraform init
 
 # Apply the terraform configuration for Apigee eval, creating a project and Apigee X instance and two environments (dev and prod)
-terraform apply --var-file=./x-eval.dev.tfvars
+terraform apply -var "project_id=$PROJECT_ID" -var "billing_id=$BILLING_ID" -var "project_create=false" --var-file=./x-apigee.tfvars
 
 # Destroy project when finished
-terraform destroy --var-file=./x-eval.dev.tfvars
+terraform destroy --var-file=./x-apigee.tfvars
 ```

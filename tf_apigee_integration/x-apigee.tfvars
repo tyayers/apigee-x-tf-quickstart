@@ -14,8 +14,6 @@
  * limitations under the License.
  */
 
-project_id="YOUR_PROJECT_ID"
-billing_id="YOUR_BILLING_ID"
 region = "europe-west4"
 
 network="default"
