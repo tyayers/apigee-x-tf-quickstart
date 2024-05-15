@@ -84,7 +84,6 @@ module "nip-development-hostname" {
 resource "google_integrations_client" "appintegration" {
   project = module.project.project_id
   location = var.region
-  provision_gmek = true
 }
 
 /**
