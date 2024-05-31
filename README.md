@@ -16,6 +16,32 @@ Here are the resources created by this quickstart.
 ## Deployment
 You can deploy this manually running these shell commands in your environment of choice (**gcloud** and **terraform** have to be installed).
 
+### Apigee & Application Integration deployment
+```sh
+# Clone the repository and switch to the directory
+git clone https://github.com/tyayers/apigee-x-tf-quickstart.git; cd apigee-x-tf-quickstart
+
+# Copy the environment variables file and edit with your values
+cp 1_env.sh 1_env.local.sh
+nano 1_env.local.sh
+source 1_env.local.sh
+
+# Change to the tf_apigee_simple or tf_apigee_integration directory
+cd tf_apigee_integration
+
+# Run terraform init on the configuration
+terraform init
+
+# Apply the terraform configuration for Apigee eval, creating a project and Apigee X instance and two environments (dev and prod)
+terraform apply -var "project_id=$PROJECT_ID" -var "billing_id=$BILLING_ID" -var "project_create=false" --var-file=./x-apigee.tfvars
+# OR for Apigee Pay-as-you-go
+terraform apply -var "project_id=$PROJECT_ID" -var "billing_id=$BILLING_ID" -var "apigee_billing_type=PAYG" -var "project_create=false" --var-file=./x-apigee.tfvars
+
+# Destroy project when finished
+terraform destroy --var-file=./x-apigee.tfvars
+```
+
+### Apigee simple deployment
 ```sh
 # Clone the repository and switch to the directory
 git clone https://github.com/tyayers/apigee-x-tf-quickstart.git; cd apigee-x-tf-quickstart
@@ -33,6 +59,8 @@ terraform init
 
 # Apply the terraform configuration for Apigee eval, creating a project and Apigee X instance and two environments (dev and prod)
 terraform apply -var "project_id=$PROJECT_ID" -var "billing_id=$BILLING_ID" -var "project_create=false" --var-file=./x-apigee.tfvars
+# OR for Apigee Pay-as-you-go
+terraform apply -var "project_id=$PROJECT_ID" -var "billing_id=$BILLING_ID" -var "apigee_billing_type=PAYG" -var "project_create=false" --var-file=./x-apigee.tfvars
 
 # Destroy project when finished
 terraform destroy --var-file=./x-apigee.tfvars
