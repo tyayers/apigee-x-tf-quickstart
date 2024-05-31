@@ -136,6 +136,16 @@ module "nb-psc-l7xlb" {
   psc_negs        = [for _, psc_neg in google_compute_region_network_endpoint_group.psc_neg : psc_neg.id]
 }
 
+module "apigee_addons" {
+  source     = "github.com/terraform-google-modules/cloud-foundation-fabric//modules/apigee"
+  project_id = module.project.project_id
+  addons_config = {
+    api_security = true
+    advanced_api_ops = true
+  }
+  depends_on = [ module.apigee-x-core ]
+}
+
 # This was necessary to give the project time to apply the 
 # resource "time_sleep" "wait" {
 #   depends_on = [module.project]
